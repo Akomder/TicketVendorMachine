@@ -18,7 +18,7 @@ namespace TicketVendorMachine
         private decimal calculatedFare;
         private double distance;
         private int journeyTime;
-        private string machineId = "Develop by: Akhom && Tan"; // Can be configured
+        private string machineId = "Developed by: Akhom && Tan"; // Can be configured
 
         public MainForm()
         {
@@ -412,11 +412,8 @@ namespace TicketVendorMachine
         }
 
 
-
-
-
         #endregion
 
-     
+
     }
 }

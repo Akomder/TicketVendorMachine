@@ -1,4 +1,5 @@
-﻿namespace TicketVendorMachine
+﻿
+namespace TicketVendorMachine
 {
     partial class MainForm
     {
@@ -27,44 +28,38 @@
             this.btnCalculateFare = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.grpFareDetails = new System.Windows.Forms.GroupBox();
-            this.lblFromLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelJourney = new System.Windows.Forms.Label();
+            this.labelZone = new System.Windows.Forms.Label();
+            this.labelDistance = new System.Windows.Forms.Label();
+            this.lnlTo = new System.Windows.Forms.Label();
+            this.lblFrom = new System.Windows.Forms.Label();
             this.lblOriginStation = new System.Windows.Forms.Label();
-            this.lblToLabel = new System.Windows.Forms.Label();
             this.lblDestStation = new System.Windows.Forms.Label();
-            this.lblDistanceLabel = new System.Windows.Forms.Label();
             this.lblDistance = new System.Windows.Forms.Label();
-            this.lblJourneyLabel = new System.Windows.Forms.Label();
             this.lblJourneyTime = new System.Windows.Forms.Label();
-            this.lblZonesLabel = new System.Windows.Forms.Label();
             this.lblZones = new System.Windows.Forms.Label();
-            this.lblFareLabel = new System.Windows.Forms.Label();
             this.lblFareAmount = new System.Windows.Forms.Label();
             this.grpPayment = new System.Windows.Forms.GroupBox();
             this.btnPayCreditCard = new System.Windows.Forms.Button();
             this.btnPayCash = new System.Windows.Forms.Button();
-            this.btnPayZaloPay = new System.Windows.Forms.Button();
             this.btnPayVNPay = new System.Windows.Forms.Button();
+            this.btnPayZaloPay = new System.Windows.Forms.Button();
             this.tabReports = new System.Windows.Forms.TabPage();
             this.grpReportFilters = new System.Windows.Forms.GroupBox();
-            this.lblFromDateLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelFrom = new System.Windows.Forms.Label();
             this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
-            this.lblToDateLabel = new System.Windows.Forms.Label();
             this.dtpToDate = new System.Windows.Forms.DateTimePicker();
             this.btnGenerateReport = new System.Windows.Forms.Button();
             this.btnExportReport = new System.Windows.Forms.Button();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.grpReportSummary = new System.Windows.Forms.GroupBox();
-            this.lblTotalTransLabel = new System.Windows.Forms.Label();
             this.lblTotalTransactions = new System.Windows.Forms.Label();
-            this.lblSuccessLabel = new System.Windows.Forms.Label();
             this.lblSuccessfulTrans = new System.Windows.Forms.Label();
-            this.lblFailedLabel = new System.Windows.Forms.Label();
             this.lblFailedTrans = new System.Windows.Forms.Label();
-            this.lblSuccessRateLabel = new System.Windows.Forms.Label();
             this.lblSuccessRate = new System.Windows.Forms.Label();
-            this.lblRevenueLabel = new System.Windows.Forms.Label();
             this.lblTotalRevenue = new System.Windows.Forms.Label();
-            this.lblTicketsLabel = new System.Windows.Forms.Label();
             this.lblTotalTickets = new System.Windows.Forms.Label();
             this.lblMachineId = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
@@ -86,7 +81,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1182, 620);
+            this.tabControl1.Size = new System.Drawing.Size(1176, 620);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPurchase
@@ -98,7 +93,7 @@
             this.tabPurchase.Location = new System.Drawing.Point(4, 29);
             this.tabPurchase.Name = "tabPurchase";
             this.tabPurchase.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPurchase.Size = new System.Drawing.Size(1174, 587);
+            this.tabPurchase.Size = new System.Drawing.Size(1168, 587);
             this.tabPurchase.TabIndex = 0;
             this.tabPurchase.Text = "Purchase Ticket";
             // 
@@ -188,17 +183,17 @@
             // 
             // grpFareDetails
             // 
-            this.grpFareDetails.Controls.Add(this.lblFromLabel);
+            this.grpFareDetails.Controls.Add(this.label1);
+            this.grpFareDetails.Controls.Add(this.labelJourney);
+            this.grpFareDetails.Controls.Add(this.labelZone);
+            this.grpFareDetails.Controls.Add(this.labelDistance);
+            this.grpFareDetails.Controls.Add(this.lnlTo);
+            this.grpFareDetails.Controls.Add(this.lblFrom);
             this.grpFareDetails.Controls.Add(this.lblOriginStation);
-            this.grpFareDetails.Controls.Add(this.lblToLabel);
             this.grpFareDetails.Controls.Add(this.lblDestStation);
-            this.grpFareDetails.Controls.Add(this.lblDistanceLabel);
             this.grpFareDetails.Controls.Add(this.lblDistance);
-            this.grpFareDetails.Controls.Add(this.lblJourneyLabel);
             this.grpFareDetails.Controls.Add(this.lblJourneyTime);
-            this.grpFareDetails.Controls.Add(this.lblZonesLabel);
             this.grpFareDetails.Controls.Add(this.lblZones);
-            this.grpFareDetails.Controls.Add(this.lblFareLabel);
             this.grpFareDetails.Controls.Add(this.lblFareAmount);
             this.grpFareDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.grpFareDetails.Location = new System.Drawing.Point(550, 20);
@@ -209,13 +204,65 @@
             this.grpFareDetails.Text = "Journey Details";
             this.grpFareDetails.Visible = false;
             // 
-            // lblFromLabel
+            // label1
             // 
-            this.lblFromLabel.Location = new System.Drawing.Point(84, 37);
-            this.lblFromLabel.Name = "lblFromLabel";
-            this.lblFromLabel.Size = new System.Drawing.Size(69, 23);
-            this.lblFromLabel.TabIndex = 0;
-            this.lblFromLabel.Text = "From:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 185);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 22);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Total Fare:";
+            // 
+            // labelJourney
+            // 
+            this.labelJourney.AutoSize = true;
+            this.labelJourney.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJourney.Location = new System.Drawing.Point(313, 108);
+            this.labelJourney.Name = "labelJourney";
+            this.labelJourney.Size = new System.Drawing.Size(79, 22);
+            this.labelJourney.TabIndex = 16;
+            this.labelJourney.Text = "Journey:";
+            // 
+            // labelZone
+            // 
+            this.labelZone.AutoSize = true;
+            this.labelZone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelZone.Location = new System.Drawing.Point(23, 138);
+            this.labelZone.Name = "labelZone";
+            this.labelZone.Size = new System.Drawing.Size(56, 22);
+            this.labelZone.TabIndex = 15;
+            this.labelZone.Text = "Zone:";
+            // 
+            // labelDistance
+            // 
+            this.labelDistance.AutoSize = true;
+            this.labelDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDistance.Location = new System.Drawing.Point(23, 108);
+            this.labelDistance.Name = "labelDistance";
+            this.labelDistance.Size = new System.Drawing.Size(85, 22);
+            this.labelDistance.TabIndex = 14;
+            this.labelDistance.Text = "Distance:";
+            // 
+            // lnlTo
+            // 
+            this.lnlTo.AutoSize = true;
+            this.lnlTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnlTo.Location = new System.Drawing.Point(79, 68);
+            this.lnlTo.Name = "lnlTo";
+            this.lnlTo.Size = new System.Drawing.Size(37, 22);
+            this.lnlTo.TabIndex = 13;
+            this.lnlTo.Text = "To:";
+            // 
+            // lblFrom
+            // 
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFrom.Location = new System.Drawing.Point(79, 36);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(56, 22);
+            this.lblFrom.TabIndex = 12;
+            this.lblFrom.Text = "From:";
             // 
             // lblOriginStation
             // 
@@ -225,14 +272,6 @@
             this.lblOriginStation.Size = new System.Drawing.Size(420, 20);
             this.lblOriginStation.TabIndex = 1;
             // 
-            // lblToLabel
-            // 
-            this.lblToLabel.Location = new System.Drawing.Point(84, 68);
-            this.lblToLabel.Name = "lblToLabel";
-            this.lblToLabel.Size = new System.Drawing.Size(60, 23);
-            this.lblToLabel.TabIndex = 2;
-            this.lblToLabel.Text = "To:";
-            // 
             // lblDestStation
             // 
             this.lblDestStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
@@ -240,14 +279,6 @@
             this.lblDestStation.Name = "lblDestStation";
             this.lblDestStation.Size = new System.Drawing.Size(420, 20);
             this.lblDestStation.TabIndex = 3;
-            // 
-            // lblDistanceLabel
-            // 
-            this.lblDistanceLabel.Location = new System.Drawing.Point(23, 107);
-            this.lblDistanceLabel.Name = "lblDistanceLabel";
-            this.lblDistanceLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblDistanceLabel.TabIndex = 4;
-            this.lblDistanceLabel.Text = "Distance:";
             // 
             // lblDistance
             // 
@@ -257,14 +288,6 @@
             this.lblDistance.Size = new System.Drawing.Size(100, 20);
             this.lblDistance.TabIndex = 5;
             // 
-            // lblJourneyLabel
-            // 
-            this.lblJourneyLabel.Location = new System.Drawing.Point(295, 107);
-            this.lblJourneyLabel.Name = "lblJourneyLabel";
-            this.lblJourneyLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblJourneyLabel.TabIndex = 6;
-            this.lblJourneyLabel.Text = "Journey:";
-            // 
             // lblJourneyTime
             // 
             this.lblJourneyTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
@@ -272,14 +295,6 @@
             this.lblJourneyTime.Name = "lblJourneyTime";
             this.lblJourneyTime.Size = new System.Drawing.Size(150, 20);
             this.lblJourneyTime.TabIndex = 7;
-            // 
-            // lblZonesLabel
-            // 
-            this.lblZonesLabel.Location = new System.Drawing.Point(23, 137);
-            this.lblZonesLabel.Name = "lblZonesLabel";
-            this.lblZonesLabel.Size = new System.Drawing.Size(78, 23);
-            this.lblZonesLabel.TabIndex = 8;
-            this.lblZonesLabel.Text = "Zone:";
             // 
             // lblZones
             // 
@@ -289,21 +304,13 @@
             this.lblZones.Size = new System.Drawing.Size(150, 20);
             this.lblZones.TabIndex = 9;
             // 
-            // lblFareLabel
-            // 
-            this.lblFareLabel.Location = new System.Drawing.Point(23, 177);
-            this.lblFareLabel.Name = "lblFareLabel";
-            this.lblFareLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblFareLabel.TabIndex = 10;
-            this.lblFareLabel.Text = "Fare";
-            // 
             // lblFareAmount
             // 
             this.lblFareAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
             this.lblFareAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.lblFareAmount.Location = new System.Drawing.Point(20, 200);
+            this.lblFareAmount.Location = new System.Drawing.Point(20, 210);
             this.lblFareAmount.Name = "lblFareAmount";
-            this.lblFareAmount.Size = new System.Drawing.Size(550, 47);
+            this.lblFareAmount.Size = new System.Drawing.Size(550, 30);
             this.lblFareAmount.TabIndex = 11;
             this.lblFareAmount.Text = "0 ₫";
             // 
@@ -311,8 +318,8 @@
             // 
             this.grpPayment.Controls.Add(this.btnPayCreditCard);
             this.grpPayment.Controls.Add(this.btnPayCash);
-            this.grpPayment.Controls.Add(this.btnPayZaloPay);
             this.grpPayment.Controls.Add(this.btnPayVNPay);
+            this.grpPayment.Controls.Add(this.btnPayZaloPay);
             this.grpPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.grpPayment.Location = new System.Drawing.Point(20, 290);
             this.grpPayment.Name = "grpPayment";
@@ -338,17 +345,31 @@
             // 
             // btnPayCash
             // 
-            this.btnPayCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnPayCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.btnPayCash.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPayCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnPayCash.ForeColor = System.Drawing.Color.White;
-            this.btnPayCash.Location = new System.Drawing.Point(307, 50);
+            this.btnPayCash.Location = new System.Drawing.Point(310, 50);
             this.btnPayCash.Name = "btnPayCash";
             this.btnPayCash.Size = new System.Drawing.Size(250, 180);
-            this.btnPayCash.TabIndex = 2;
-            this.btnPayCash.Text = "💵\n\nCash\n\nClick For Payment";
+            this.btnPayCash.TabIndex = 1;
+            this.btnPayCash.Text = "💰\n\nCash\n\nClick for Payment";
             this.btnPayCash.UseVisualStyleBackColor = false;
             this.btnPayCash.Click += new System.EventHandler(this.btnPayCash_Click);
+            // 
+            // btnPayVNPay
+            // 
+            this.btnPayVNPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnPayVNPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPayVNPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPayVNPay.ForeColor = System.Drawing.Color.White;
+            this.btnPayVNPay.Location = new System.Drawing.Point(590, 50);
+            this.btnPayVNPay.Name = "btnPayVNPay";
+            this.btnPayVNPay.Size = new System.Drawing.Size(250, 180);
+            this.btnPayVNPay.TabIndex = 2;
+            this.btnPayVNPay.Text = "💵\n\nVNPay\n\nQR Code Payment";
+            this.btnPayVNPay.UseVisualStyleBackColor = false;
+            this.btnPayVNPay.Click += new System.EventHandler(this.btnPayVNPay_Click);
             // 
             // btnPayZaloPay
             // 
@@ -364,20 +385,6 @@
             this.btnPayZaloPay.UseVisualStyleBackColor = false;
             this.btnPayZaloPay.Click += new System.EventHandler(this.btnPayZaloPay_Click);
             // 
-            // btnPayVNPay
-            // 
-            this.btnPayVNPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnPayVNPay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPayVNPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPayVNPay.ForeColor = System.Drawing.Color.White;
-            this.btnPayVNPay.Location = new System.Drawing.Point(590, 50);
-            this.btnPayVNPay.Name = "btnPayVNPay";
-            this.btnPayVNPay.Size = new System.Drawing.Size(250, 180);
-            this.btnPayVNPay.TabIndex = 1;
-            this.btnPayVNPay.Text = "💰\n\nVNPay\n\nQR Code Payment";
-            this.btnPayVNPay.UseVisualStyleBackColor = false;
-            this.btnPayVNPay.Click += new System.EventHandler(this.btnPayVNPay_Click);
-            // 
             // tabReports
             // 
             this.tabReports.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -387,15 +394,15 @@
             this.tabReports.Location = new System.Drawing.Point(4, 29);
             this.tabReports.Name = "tabReports";
             this.tabReports.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReports.Size = new System.Drawing.Size(1174, 587);
+            this.tabReports.Size = new System.Drawing.Size(1168, 587);
             this.tabReports.TabIndex = 1;
             this.tabReports.Text = "Reports & Analytics";
             // 
             // grpReportFilters
             // 
-            this.grpReportFilters.Controls.Add(this.lblFromDateLabel);
+            this.grpReportFilters.Controls.Add(this.label2);
+            this.grpReportFilters.Controls.Add(this.labelFrom);
             this.grpReportFilters.Controls.Add(this.dtpFromDate);
-            this.grpReportFilters.Controls.Add(this.lblToDateLabel);
             this.grpReportFilters.Controls.Add(this.dtpToDate);
             this.grpReportFilters.Controls.Add(this.btnGenerateReport);
             this.grpReportFilters.Controls.Add(this.btnExportReport);
@@ -407,13 +414,25 @@
             this.grpReportFilters.TabStop = false;
             this.grpReportFilters.Text = "Report Filters";
             // 
-            // lblFromDateLabel
+            // label2
             // 
-            this.lblFromDateLabel.Location = new System.Drawing.Point(46, 32);
-            this.lblFromDateLabel.Name = "lblFromDateLabel";
-            this.lblFromDateLabel.Size = new System.Drawing.Size(68, 23);
-            this.lblFromDateLabel.TabIndex = 0;
-            this.lblFromDateLabel.Text = "From:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(341, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "To:";
+            // 
+            // labelFrom
+            // 
+            this.labelFrom.AutoSize = true;
+            this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFrom.Location = new System.Drawing.Point(61, 32);
+            this.labelFrom.Name = "labelFrom";
+            this.labelFrom.Size = new System.Drawing.Size(53, 20);
+            this.labelFrom.TabIndex = 6;
+            this.labelFrom.Text = "From:";
             // 
             // dtpFromDate
             // 
@@ -422,14 +441,6 @@
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(150, 26);
             this.dtpFromDate.TabIndex = 1;
-            // 
-            // lblToDateLabel
-            // 
-            this.lblToDateLabel.Location = new System.Drawing.Point(330, 32);
-            this.lblToDateLabel.Name = "lblToDateLabel";
-            this.lblToDateLabel.Size = new System.Drawing.Size(44, 23);
-            this.lblToDateLabel.TabIndex = 2;
-            this.lblToDateLabel.Text = "To:";
             // 
             // dtpToDate
             // 
@@ -481,17 +492,11 @@
             // 
             // grpReportSummary
             // 
-            this.grpReportSummary.Controls.Add(this.lblTotalTransLabel);
             this.grpReportSummary.Controls.Add(this.lblTotalTransactions);
-            this.grpReportSummary.Controls.Add(this.lblSuccessLabel);
             this.grpReportSummary.Controls.Add(this.lblSuccessfulTrans);
-            this.grpReportSummary.Controls.Add(this.lblFailedLabel);
             this.grpReportSummary.Controls.Add(this.lblFailedTrans);
-            this.grpReportSummary.Controls.Add(this.lblSuccessRateLabel);
             this.grpReportSummary.Controls.Add(this.lblSuccessRate);
-            this.grpReportSummary.Controls.Add(this.lblRevenueLabel);
             this.grpReportSummary.Controls.Add(this.lblTotalRevenue);
-            this.grpReportSummary.Controls.Add(this.lblTicketsLabel);
             this.grpReportSummary.Controls.Add(this.lblTotalTickets);
             this.grpReportSummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.grpReportSummary.Location = new System.Drawing.Point(20, 440);
@@ -502,148 +507,92 @@
             this.grpReportSummary.Text = "Summary";
             this.grpReportSummary.Visible = false;
             // 
-            // lblTotalTransLabel
-            // 
-            this.lblTotalTransLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblTotalTransLabel.Name = "lblTotalTransLabel";
-            this.lblTotalTransLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblTotalTransLabel.TabIndex = 0;
-            // 
             // lblTotalTransactions
             // 
-            this.lblTotalTransactions.AutoSize = true;
-            this.lblTotalTransactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblTotalTransactions.Location = new System.Drawing.Point(250, 30);
+            this.lblTotalTransactions.Location = new System.Drawing.Point(204, 22);
             this.lblTotalTransactions.Name = "lblTotalTransactions";
-            this.lblTotalTransactions.Size = new System.Drawing.Size(0, 20);
+            this.lblTotalTransactions.Size = new System.Drawing.Size(100, 23);
             this.lblTotalTransactions.TabIndex = 1;
-            // 
-            // lblSuccessLabel
-            // 
-            this.lblSuccessLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblSuccessLabel.Name = "lblSuccessLabel";
-            this.lblSuccessLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblSuccessLabel.TabIndex = 2;
             // 
             // lblSuccessfulTrans
             // 
-            this.lblSuccessfulTrans.AutoSize = true;
-            this.lblSuccessfulTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSuccessfulTrans.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.lblSuccessfulTrans.Location = new System.Drawing.Point(250, 60);
+            this.lblSuccessfulTrans.Location = new System.Drawing.Point(204, 45);
             this.lblSuccessfulTrans.Name = "lblSuccessfulTrans";
-            this.lblSuccessfulTrans.Size = new System.Drawing.Size(0, 20);
+            this.lblSuccessfulTrans.Size = new System.Drawing.Size(100, 23);
             this.lblSuccessfulTrans.TabIndex = 3;
-            // 
-            // lblFailedLabel
-            // 
-            this.lblFailedLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblFailedLabel.Name = "lblFailedLabel";
-            this.lblFailedLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblFailedLabel.TabIndex = 4;
             // 
             // lblFailedTrans
             // 
-            this.lblFailedTrans.AutoSize = true;
-            this.lblFailedTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblFailedTrans.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.lblFailedTrans.Location = new System.Drawing.Point(250, 90);
+            this.lblFailedTrans.Location = new System.Drawing.Point(204, 68);
             this.lblFailedTrans.Name = "lblFailedTrans";
-            this.lblFailedTrans.Size = new System.Drawing.Size(0, 20);
+            this.lblFailedTrans.Size = new System.Drawing.Size(100, 23);
             this.lblFailedTrans.TabIndex = 5;
-            // 
-            // lblSuccessRateLabel
-            // 
-            this.lblSuccessRateLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblSuccessRateLabel.Name = "lblSuccessRateLabel";
-            this.lblSuccessRateLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblSuccessRateLabel.TabIndex = 6;
             // 
             // lblSuccessRate
             // 
-            this.lblSuccessRate.AutoSize = true;
-            this.lblSuccessRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSuccessRate.Location = new System.Drawing.Point(550, 30);
+            this.lblSuccessRate.Location = new System.Drawing.Point(204, 91);
             this.lblSuccessRate.Name = "lblSuccessRate";
-            this.lblSuccessRate.Size = new System.Drawing.Size(0, 20);
+            this.lblSuccessRate.Size = new System.Drawing.Size(100, 23);
             this.lblSuccessRate.TabIndex = 7;
-            // 
-            // lblRevenueLabel
-            // 
-            this.lblRevenueLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblRevenueLabel.Name = "lblRevenueLabel";
-            this.lblRevenueLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblRevenueLabel.TabIndex = 8;
             // 
             // lblTotalRevenue
             // 
-            this.lblTotalRevenue.AutoSize = true;
-            this.lblTotalRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblTotalRevenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.lblTotalRevenue.Location = new System.Drawing.Point(550, 60);
+            this.lblTotalRevenue.Location = new System.Drawing.Point(560, 22);
             this.lblTotalRevenue.Name = "lblTotalRevenue";
-            this.lblTotalRevenue.Size = new System.Drawing.Size(0, 20);
+            this.lblTotalRevenue.Size = new System.Drawing.Size(100, 23);
             this.lblTotalRevenue.TabIndex = 9;
-            // 
-            // lblTicketsLabel
-            // 
-            this.lblTicketsLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblTicketsLabel.Name = "lblTicketsLabel";
-            this.lblTicketsLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblTicketsLabel.TabIndex = 10;
             // 
             // lblTotalTickets
             // 
-            this.lblTotalTickets.AutoSize = true;
-            this.lblTotalTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblTotalTickets.Location = new System.Drawing.Point(550, 90);
+            this.lblTotalTickets.Location = new System.Drawing.Point(560, 57);
             this.lblTotalTickets.Name = "lblTotalTickets";
-            this.lblTotalTickets.Size = new System.Drawing.Size(0, 20);
+            this.lblTotalTickets.Size = new System.Drawing.Size(100, 23);
             this.lblTotalTickets.TabIndex = 11;
             // 
             // lblMachineId
             // 
-            this.lblMachineId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblMachineId.AutoSize = true;
-            this.lblMachineId.Location = new System.Drawing.Point(21, 645);
+            this.lblMachineId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblMachineId.Location = new System.Drawing.Point(12, 645);
             this.lblMachineId.Name = "lblMachineId";
-            this.lblMachineId.Size = new System.Drawing.Size(202, 20);
+            this.lblMachineId.Size = new System.Drawing.Size(245, 20);
             this.lblMachineId.TabIndex = 1;
-            this.lblMachineId.Text = "Develop by: Akhom && Tan";
+            this.lblMachineId.Text = "Developed by: Akhom && Tan";
             // 
             // lblDateTime
             // 
-            this.lblDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDateTime.AutoSize = true;
-            this.lblDateTime.Location = new System.Drawing.Point(1182, 645);
+            this.lblDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblDateTime.Location = new System.Drawing.Point(991, 645);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(177, 20);
+            this.lblDateTime.Size = new System.Drawing.Size(145, 20);
             this.lblDateTime.TabIndex = 2;
-            this.lblDateTime.Text = "DD/MM/YYYY HH:MM";
+            this.lblDateTime.Text = "dd/MM/yy HH:mm";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1432, 700);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblMachineId);
             this.Controls.Add(this.lblDateTime);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HCMC Metro";
+            this.Text = "Ticket Vendor Machine";
             this.tabControl1.ResumeLayout(false);
             this.tabPurchase.ResumeLayout(false);
             this.grpStationSelection.ResumeLayout(false);
             this.grpStationSelection.PerformLayout();
             this.grpFareDetails.ResumeLayout(false);
+            this.grpFareDetails.PerformLayout();
             this.grpPayment.ResumeLayout(false);
             this.tabReports.ResumeLayout(false);
             this.grpReportFilters.ResumeLayout(false);
+            this.grpReportFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.grpReportSummary.ResumeLayout(false);
-            this.grpReportSummary.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -654,6 +603,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPurchase;
         private System.Windows.Forms.TabPage tabReports;
+
         private System.Windows.Forms.GroupBox grpStationSelection;
         private System.Windows.Forms.ComboBox cmbOrigin;
         private System.Windows.Forms.ComboBox cmbDestination;
@@ -661,16 +611,29 @@
         private System.Windows.Forms.Label lblDestination;
         private System.Windows.Forms.Button btnCalculateFare;
         private System.Windows.Forms.Button btnReset;
+
+        private System.Windows.Forms.GroupBox grpFareDetails;
+        private System.Windows.Forms.Label lblOriginStation;
+        private System.Windows.Forms.Label lblDestStation;
+        private System.Windows.Forms.Label lblFareAmount;
+        private System.Windows.Forms.Label lblDistance;
+        private System.Windows.Forms.Label lblJourneyTime;
+        private System.Windows.Forms.Label lblZones;
+
         private System.Windows.Forms.GroupBox grpPayment;
         private System.Windows.Forms.Button btnPayCreditCard;
         private System.Windows.Forms.Button btnPayCash;
+        private System.Windows.Forms.Button btnPayVNPay;
         private System.Windows.Forms.Button btnPayZaloPay;
+
         private System.Windows.Forms.GroupBox grpReportFilters;
         private System.Windows.Forms.DateTimePicker dtpFromDate;
         private System.Windows.Forms.DateTimePicker dtpToDate;
         private System.Windows.Forms.Button btnGenerateReport;
         private System.Windows.Forms.Button btnExportReport;
+
         private System.Windows.Forms.DataGridView dgvReport;
+
         private System.Windows.Forms.GroupBox grpReportSummary;
         private System.Windows.Forms.Label lblTotalTransactions;
         private System.Windows.Forms.Label lblSuccessfulTrans;
@@ -678,29 +641,16 @@
         private System.Windows.Forms.Label lblTotalRevenue;
         private System.Windows.Forms.Label lblTotalTickets;
         private System.Windows.Forms.Label lblSuccessRate;
+
         private System.Windows.Forms.Label lblMachineId;
         private System.Windows.Forms.Label lblDateTime;
-        private System.Windows.Forms.Label lblToDateLabel;
-        private System.Windows.Forms.Label lblTotalTransLabel;
-        private System.Windows.Forms.Label lblSuccessLabel;
-        private System.Windows.Forms.Label lblFailedLabel;
-        private System.Windows.Forms.Label lblSuccessRateLabel;
-        private System.Windows.Forms.Label lblRevenueLabel;
-        private System.Windows.Forms.Label lblTicketsLabel;
-        private System.Windows.Forms.GroupBox grpFareDetails;
-        private System.Windows.Forms.Label lblFromLabel;
-        private System.Windows.Forms.Label lblOriginStation;
-        private System.Windows.Forms.Label lblToLabel;
-        private System.Windows.Forms.Label lblDestStation;
-        private System.Windows.Forms.Label lblDistanceLabel;
-        private System.Windows.Forms.Label lblDistance;
-        private System.Windows.Forms.Label lblJourneyLabel;
-        private System.Windows.Forms.Label lblJourneyTime;
-        private System.Windows.Forms.Label lblZonesLabel;
-        private System.Windows.Forms.Label lblZones;
-        private System.Windows.Forms.Label lblFareLabel;
-        private System.Windows.Forms.Label lblFareAmount;
-        private System.Windows.Forms.Button btnPayVNPay;
-        private System.Windows.Forms.Label lblFromDateLabel;
+        private System.Windows.Forms.Label lblFrom;
+        private System.Windows.Forms.Label lnlTo;
+        private System.Windows.Forms.Label labelDistance;
+        private System.Windows.Forms.Label labelJourney;
+        private System.Windows.Forms.Label labelZone;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelFrom;
+        private System.Windows.Forms.Label label2;
     }
 }
