@@ -1,15 +1,19 @@
-﻿using System;
+﻿// In file: TicketVendorMachine/Form/MainForm.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using TicketVendorMachine.Models;
 using TicketVendorMachine.DataAccess;
+using TicketVendorMachine.Helpers; // --- MODIFIED: Added using statement for Helpers
 
 namespace TicketVendorMachine
 {
-    public partial class MainForm : Form
+    public partial class MainForm : System.Windows.Forms.Form
     {
         private DatabaseHelper db;
         private List<Station> stations;
@@ -19,6 +23,9 @@ namespace TicketVendorMachine
         private double distance;
         private int journeyTime;
         private string machineId = "Developed by: Akhom && Tan"; // Can be configured
+
+        // --- MODIFIED: Added field to store report data for export ---
+        private DataTable reportData;
 
         public MainForm()
         {
@@ -151,59 +158,61 @@ namespace TicketVendorMachine
 
         private void btnPayCreditCard_Click(object sender, EventArgs e)
         {
-            ProcessPayment("Credit Card");
+            ShowPaymentForm("Credit Card");
         }
 
         private void btnPayCash_Click(object sender, EventArgs e)
         {
-            ProcessPayment("Cash");
+            ShowPaymentForm("Cash");
         }
 
         private void btnPayVNPay_Click(object sender, EventArgs e)
         {
-            ProcessPayment("QR Code - VNPay");
+            ShowPaymentForm("QR Code - VNPay");
         }
 
         private void btnPayZaloPay_Click(object sender, EventArgs e)
         {
-            ProcessPayment("QR Code - ZaloPay");
+            ShowPaymentForm("QR Code - ZaloPay");
         }
 
+        private void ShowPaymentForm(string paymentMethod)
+        {
+            try
+            {
+                // Create and show the payment form as a dialog
+                // We pass the fare and method to it
+                using (PaymentForm paymentDialog = new PaymentForm(paymentMethod, calculatedFare))
+                {
+                    this.Cursor = Cursors.Default; // Ensure cursor is normal for the dialog
+                    DialogResult result = paymentDialog.ShowDialog();
 
-        // --- MODIFIED ProcessPayment METHOD ---
+                    // Check if the user "confirmed" the payment on that form
+                    if (result == DialogResult.OK)
+                    {
+                        // If confirmed, THEN process the payment and print the ticket
+                        ProcessPayment(paymentMethod);
+                    }
+                    // else (result == DialogResult.Cancel), do nothing. The user cancelled.
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Payment processing error: {ex.Message}\nPlease try again or contact support.",
+                    "Payment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
         private void ProcessPayment(string paymentMethod)
         {
             try
             {
                 // Show processing
                 this.Cursor = Cursors.WaitCursor;
-
-                // --- MODIFIED ---
-                // Handle cash payment simulation differently
-                if (paymentMethod == "Cash")
-                {
-                    string cashMessage = $"Please insert {calculatedFare:N0} ₫\n\n" +
-                                         "(Please insert banknotes.)\n\n" +
-                                         "Click OK to confirm payment, or Cancel to abort.";
-
-                    DialogResult result = MessageBox.Show(cashMessage, "Cash Payment",
-                                          MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-                    if (result == DialogResult.Cancel)
-                    {
-                        // User cancelled the cash payment
-                        this.Cursor = Cursors.Default;
-                        return; // Stop processing
-                    }
-                    // If user clicked OK, proceed as if payment was successful
-                }
-                else
-                {
-                    // Simulate non-cash payment processing delay
-                    System.Threading.Thread.Sleep(1500);
-                }
-                // --- END MODIFICATION ---
-
 
                 // Create transaction
                 Transaction trans = new Transaction
@@ -218,7 +227,7 @@ namespace TicketVendorMachine
                     Distance = distance,
                     JourneyTime = journeyTime,
                     PaymentMethod = paymentMethod,
-                    PaymentStatus = "Success", // In real system, this would come from payment gateway
+                    PaymentStatus = "Success", // We assume OK from PaymentForm means success
                     PaymentReference = (paymentMethod == "Cash") ? "CASH_PAID" : Guid.NewGuid().ToString(),
                     CreatedDate = DateTime.Now,
                     CompletedDate = DateTime.Now
@@ -234,7 +243,8 @@ namespace TicketVendorMachine
                     {
                         TicketCode = "TKT" + DateTime.Now.Ticks,
                         TransactionId = transactionId,
-                        QRCodeData = GenerateQRData(trans.TransactionCode),
+                        // --- MODIFIED: Call the new TicketHelper ---
+                        QRCodeData = TicketHelper.GenerateQRData(trans.TransactionCode),
                         TicketType = "Single",
                         ValidFrom = DateTime.Now,
                         ValidUntil = DateTime.Now.AddHours(2),
@@ -280,10 +290,7 @@ namespace TicketVendorMachine
             }
         }
 
-        private string GenerateQRData(string transactionCode)
-        {
-            return $"HCMC-METRO|{transactionCode}|{DateTime.Now:yyyyMMddHHmmss}";
-        }
+        // --- REMOVED: GenerateQRData() method was moved to TicketHelper ---
 
         private void ResetPurchaseForm()
         {
@@ -314,9 +321,9 @@ namespace TicketVendorMachine
                 DateTime fromDate = dtpFromDate.Value.Date;
                 DateTime toDate = dtpToDate.Value.Date.AddDays(1).AddSeconds(-1);
 
-                // Get transaction data
-                DataTable reportData = db.GetTransactionReport(fromDate, toDate, null);
-                dgvReport.DataSource = reportData;
+                // --- MODIFIED: Store data in the class field ---
+                this.reportData = db.GetTransactionReport(fromDate, toDate, null);
+                dgvReport.DataSource = this.reportData;
 
                 // Format currency columns
                 if (dgvReport.Columns["Fare (VND)"] != null)
@@ -357,7 +364,8 @@ namespace TicketVendorMachine
         {
             try
             {
-                if (dgvReport.Rows.Count == 0)
+                // --- MODIFIED: Check the DataTable field, not the grid ---
+                if (this.reportData == null || this.reportData.Rows.Count == 0)
                 {
                     MessageBox.Show("No data to export. Please generate a report first.",
                         "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -372,7 +380,7 @@ namespace TicketVendorMachine
 
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
-                    ExportToCSV(dgvReport, saveDialog.FileName);
+                    ExportHelper.ExportDataTableToCSV(this.reportData, saveDialog.FileName);
                     MessageBox.Show("Report exported successfully!", "Export Complete",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -384,36 +392,7 @@ namespace TicketVendorMachine
             }
         }
 
-        private void ExportToCSV(DataGridView grid, string filename)
-        {
-            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(filename))
-            {
-                // Write headers
-                for (int i = 0; i < grid.Columns.Count; i++)
-                {
-                    sw.Write(grid.Columns[i].HeaderText);
-                    if (i < grid.Columns.Count - 1) sw.Write(",");
-                }
-                sw.WriteLine();
-
-                // Write rows
-                foreach (DataGridViewRow row in grid.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    for (int i = 0; i < grid.Columns.Count; i++)
-                    {
-                        sw.Write(row.Cells[i].Value?.ToString() ?? "");
-                        if (i < grid.Columns.Count - 1) sw.Write(",");
-                    }
-                    sw.WriteLine();
-                }
-            }
-        }
-
 
         #endregion
-
-
     }
 }

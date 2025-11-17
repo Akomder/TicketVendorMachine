@@ -63,6 +63,12 @@ namespace TicketVendorMachine
             this.lblTotalTickets = new System.Windows.Forms.Label();
             this.lblMachineId = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPurchase.SuspendLayout();
             this.grpStationSelection.SuspendLayout();
@@ -492,6 +498,12 @@ namespace TicketVendorMachine
             // 
             // grpReportSummary
             // 
+            this.grpReportSummary.Controls.Add(this.label8);
+            this.grpReportSummary.Controls.Add(this.label7);
+            this.grpReportSummary.Controls.Add(this.label6);
+            this.grpReportSummary.Controls.Add(this.label5);
+            this.grpReportSummary.Controls.Add(this.label4);
+            this.grpReportSummary.Controls.Add(this.label3);
             this.grpReportSummary.Controls.Add(this.lblTotalTransactions);
             this.grpReportSummary.Controls.Add(this.lblSuccessfulTrans);
             this.grpReportSummary.Controls.Add(this.lblFailedTrans);
@@ -537,7 +549,7 @@ namespace TicketVendorMachine
             // 
             // lblTotalRevenue
             // 
-            this.lblTotalRevenue.Location = new System.Drawing.Point(560, 22);
+            this.lblTotalRevenue.Location = new System.Drawing.Point(560, 25);
             this.lblTotalRevenue.Name = "lblTotalRevenue";
             this.lblTotalRevenue.Size = new System.Drawing.Size(100, 23);
             this.lblTotalRevenue.TabIndex = 9;
@@ -569,6 +581,66 @@ namespace TicketVendorMachine
             this.lblDateTime.TabIndex = 2;
             this.lblDateTime.Text = "dd/MM/yy HH:mm";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(54, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(144, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Total Transaction:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(119, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Success:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(139, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Failed:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(149, 94);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Rate:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(441, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 20);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Total Revenue:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(452, 57);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Total Tickets:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -593,6 +665,7 @@ namespace TicketVendorMachine
             this.grpReportFilters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.grpReportSummary.ResumeLayout(false);
+            this.grpReportSummary.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,5 +725,11 @@ namespace TicketVendorMachine
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelFrom;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
     }
 }
