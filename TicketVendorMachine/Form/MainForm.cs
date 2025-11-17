@@ -18,7 +18,7 @@ namespace TicketVendorMachine
         private decimal calculatedFare;
         private double distance;
         private int journeyTime;
-        private string machineId = "TVM001"; // Can be configured
+        private string machineId = "Develop by: Akhom && Tan"; // Can be configured
 
         public MainForm()
         {
@@ -50,7 +50,7 @@ namespace TicketVendorMachine
                 LoadStations();
 
                 // Set default values
-                lblMachineId.Text = $"Machine: {machineId}";
+                lblMachineId.Text = $"{machineId}";
                 lblDateTime.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
                 // Hide fare details initially
@@ -154,9 +154,9 @@ namespace TicketVendorMachine
             ProcessPayment("Credit Card");
         }
 
-        private void btnPayMomo_Click(object sender, EventArgs e)
+        private void btnPayCash_Click(object sender, EventArgs e)
         {
-            ProcessPayment("QR Code - Momo");
+            ProcessPayment("Cash");
         }
 
         private void btnPayVNPay_Click(object sender, EventArgs e)
@@ -169,6 +169,8 @@ namespace TicketVendorMachine
             ProcessPayment("QR Code - ZaloPay");
         }
 
+
+        // --- MODIFIED ProcessPayment METHOD ---
         private void ProcessPayment(string paymentMethod)
         {
             try
@@ -176,8 +178,32 @@ namespace TicketVendorMachine
                 // Show processing
                 this.Cursor = Cursors.WaitCursor;
 
-                // Simulate payment processing delay
-                System.Threading.Thread.Sleep(1500);
+                // --- MODIFIED ---
+                // Handle cash payment simulation differently
+                if (paymentMethod == "Cash")
+                {
+                    string cashMessage = $"Please insert {calculatedFare:N0} ₫\n\n" +
+                                         "(This is a simulation. In a real machine, you would insert banknotes.)\n\n" +
+                                         "Click OK to confirm payment, or Cancel to abort.";
+
+                    DialogResult result = MessageBox.Show(cashMessage, "Cash Payment",
+                                          MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Cancel)
+                    {
+                        // User cancelled the cash payment
+                        this.Cursor = Cursors.Default;
+                        return; // Stop processing
+                    }
+                    // If user clicked OK, proceed as if payment was successful
+                }
+                else
+                {
+                    // Simulate non-cash payment processing delay
+                    System.Threading.Thread.Sleep(1500);
+                }
+                // --- END MODIFICATION ---
+
 
                 // Create transaction
                 Transaction trans = new Transaction
@@ -193,7 +219,7 @@ namespace TicketVendorMachine
                     JourneyTime = journeyTime,
                     PaymentMethod = paymentMethod,
                     PaymentStatus = "Success", // In real system, this would come from payment gateway
-                    PaymentReference = Guid.NewGuid().ToString(),
+                    PaymentReference = (paymentMethod == "Cash") ? "CASH_PAID" : Guid.NewGuid().ToString(),
                     CreatedDate = DateTime.Now,
                     CompletedDate = DateTime.Now
                 };
@@ -386,8 +412,11 @@ namespace TicketVendorMachine
         }
 
 
+
+
+
         #endregion
 
- 
+     
     }
 }

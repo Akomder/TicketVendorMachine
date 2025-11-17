@@ -27,11 +27,23 @@
             this.btnCalculateFare = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.grpFareDetails = new System.Windows.Forms.GroupBox();
+            this.lblFromLabel = new System.Windows.Forms.Label();
+            this.lblOriginStation = new System.Windows.Forms.Label();
+            this.lblToLabel = new System.Windows.Forms.Label();
+            this.lblDestStation = new System.Windows.Forms.Label();
+            this.lblDistanceLabel = new System.Windows.Forms.Label();
+            this.lblDistance = new System.Windows.Forms.Label();
+            this.lblJourneyLabel = new System.Windows.Forms.Label();
+            this.lblJourneyTime = new System.Windows.Forms.Label();
+            this.lblZonesLabel = new System.Windows.Forms.Label();
+            this.lblZones = new System.Windows.Forms.Label();
+            this.lblFareLabel = new System.Windows.Forms.Label();
+            this.lblFareAmount = new System.Windows.Forms.Label();
             this.grpPayment = new System.Windows.Forms.GroupBox();
             this.btnPayCreditCard = new System.Windows.Forms.Button();
-            this.btnPayMomo = new System.Windows.Forms.Button();
-            this.btnPayVNPay = new System.Windows.Forms.Button();
+            this.btnPayCash = new System.Windows.Forms.Button();
             this.btnPayZaloPay = new System.Windows.Forms.Button();
+            this.btnPayVNPay = new System.Windows.Forms.Button();
             this.tabReports = new System.Windows.Forms.TabPage();
             this.grpReportFilters = new System.Windows.Forms.GroupBox();
             this.lblFromDateLabel = new System.Windows.Forms.Label();
@@ -56,18 +68,6 @@
             this.lblTotalTickets = new System.Windows.Forms.Label();
             this.lblMachineId = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.lblFareAmount = new System.Windows.Forms.Label();
-            this.lblFareLabel = new System.Windows.Forms.Label();
-            this.lblZones = new System.Windows.Forms.Label();
-            this.lblZonesLabel = new System.Windows.Forms.Label();
-            this.lblJourneyTime = new System.Windows.Forms.Label();
-            this.lblJourneyLabel = new System.Windows.Forms.Label();
-            this.lblDistance = new System.Windows.Forms.Label();
-            this.lblDistanceLabel = new System.Windows.Forms.Label();
-            this.lblDestStation = new System.Windows.Forms.Label();
-            this.lblToLabel = new System.Windows.Forms.Label();
-            this.lblOriginStation = new System.Windows.Forms.Label();
-            this.lblFromLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPurchase.SuspendLayout();
             this.grpStationSelection.SuspendLayout();
@@ -86,7 +86,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1176, 620);
+            this.tabControl1.Size = new System.Drawing.Size(1182, 620);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPurchase
@@ -98,7 +98,7 @@
             this.tabPurchase.Location = new System.Drawing.Point(4, 29);
             this.tabPurchase.Name = "tabPurchase";
             this.tabPurchase.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPurchase.Size = new System.Drawing.Size(1168, 587);
+            this.tabPurchase.Size = new System.Drawing.Size(1174, 587);
             this.tabPurchase.TabIndex = 0;
             this.tabPurchase.Text = "Purchase Ticket";
             // 
@@ -209,12 +209,110 @@
             this.grpFareDetails.Text = "Journey Details";
             this.grpFareDetails.Visible = false;
             // 
+            // lblFromLabel
+            // 
+            this.lblFromLabel.Location = new System.Drawing.Point(84, 37);
+            this.lblFromLabel.Name = "lblFromLabel";
+            this.lblFromLabel.Size = new System.Drawing.Size(69, 23);
+            this.lblFromLabel.TabIndex = 0;
+            this.lblFromLabel.Text = "From:";
+            // 
+            // lblOriginStation
+            // 
+            this.lblOriginStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblOriginStation.Location = new System.Drawing.Point(150, 40);
+            this.lblOriginStation.Name = "lblOriginStation";
+            this.lblOriginStation.Size = new System.Drawing.Size(420, 20);
+            this.lblOriginStation.TabIndex = 1;
+            // 
+            // lblToLabel
+            // 
+            this.lblToLabel.Location = new System.Drawing.Point(84, 68);
+            this.lblToLabel.Name = "lblToLabel";
+            this.lblToLabel.Size = new System.Drawing.Size(60, 23);
+            this.lblToLabel.TabIndex = 2;
+            this.lblToLabel.Text = "To:";
+            // 
+            // lblDestStation
+            // 
+            this.lblDestStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDestStation.Location = new System.Drawing.Point(150, 70);
+            this.lblDestStation.Name = "lblDestStation";
+            this.lblDestStation.Size = new System.Drawing.Size(420, 20);
+            this.lblDestStation.TabIndex = 3;
+            // 
+            // lblDistanceLabel
+            // 
+            this.lblDistanceLabel.Location = new System.Drawing.Point(23, 107);
+            this.lblDistanceLabel.Name = "lblDistanceLabel";
+            this.lblDistanceLabel.Size = new System.Drawing.Size(100, 23);
+            this.lblDistanceLabel.TabIndex = 4;
+            this.lblDistanceLabel.Text = "Distance:";
+            // 
+            // lblDistance
+            // 
+            this.lblDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDistance.Location = new System.Drawing.Point(120, 110);
+            this.lblDistance.Name = "lblDistance";
+            this.lblDistance.Size = new System.Drawing.Size(100, 20);
+            this.lblDistance.TabIndex = 5;
+            // 
+            // lblJourneyLabel
+            // 
+            this.lblJourneyLabel.Location = new System.Drawing.Point(295, 107);
+            this.lblJourneyLabel.Name = "lblJourneyLabel";
+            this.lblJourneyLabel.Size = new System.Drawing.Size(100, 23);
+            this.lblJourneyLabel.TabIndex = 6;
+            this.lblJourneyLabel.Text = "Journey:";
+            // 
+            // lblJourneyTime
+            // 
+            this.lblJourneyTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblJourneyTime.Location = new System.Drawing.Point(390, 110);
+            this.lblJourneyTime.Name = "lblJourneyTime";
+            this.lblJourneyTime.Size = new System.Drawing.Size(150, 20);
+            this.lblJourneyTime.TabIndex = 7;
+            // 
+            // lblZonesLabel
+            // 
+            this.lblZonesLabel.Location = new System.Drawing.Point(23, 137);
+            this.lblZonesLabel.Name = "lblZonesLabel";
+            this.lblZonesLabel.Size = new System.Drawing.Size(78, 23);
+            this.lblZonesLabel.TabIndex = 8;
+            this.lblZonesLabel.Text = "Zone:";
+            // 
+            // lblZones
+            // 
+            this.lblZones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lblZones.Location = new System.Drawing.Point(120, 140);
+            this.lblZones.Name = "lblZones";
+            this.lblZones.Size = new System.Drawing.Size(150, 20);
+            this.lblZones.TabIndex = 9;
+            // 
+            // lblFareLabel
+            // 
+            this.lblFareLabel.Location = new System.Drawing.Point(23, 177);
+            this.lblFareLabel.Name = "lblFareLabel";
+            this.lblFareLabel.Size = new System.Drawing.Size(100, 23);
+            this.lblFareLabel.TabIndex = 10;
+            this.lblFareLabel.Text = "Fare";
+            // 
+            // lblFareAmount
+            // 
+            this.lblFareAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.lblFareAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.lblFareAmount.Location = new System.Drawing.Point(20, 200);
+            this.lblFareAmount.Name = "lblFareAmount";
+            this.lblFareAmount.Size = new System.Drawing.Size(550, 47);
+            this.lblFareAmount.TabIndex = 11;
+            this.lblFareAmount.Text = "0 ₫";
+            // 
             // grpPayment
             // 
             this.grpPayment.Controls.Add(this.btnPayCreditCard);
-            this.grpPayment.Controls.Add(this.btnPayMomo);
-            this.grpPayment.Controls.Add(this.btnPayVNPay);
+            this.grpPayment.Controls.Add(this.btnPayCash);
             this.grpPayment.Controls.Add(this.btnPayZaloPay);
+            this.grpPayment.Controls.Add(this.btnPayVNPay);
             this.grpPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.grpPayment.Location = new System.Drawing.Point(20, 290);
             this.grpPayment.Name = "grpPayment";
@@ -238,33 +336,19 @@
             this.btnPayCreditCard.UseVisualStyleBackColor = false;
             this.btnPayCreditCard.Click += new System.EventHandler(this.btnPayCreditCard_Click);
             // 
-            // btnPayMomo
+            // btnPayCash
             // 
-            this.btnPayMomo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnPayMomo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPayMomo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPayMomo.ForeColor = System.Drawing.Color.White;
-            this.btnPayMomo.Location = new System.Drawing.Point(310, 50);
-            this.btnPayMomo.Name = "btnPayMomo";
-            this.btnPayMomo.Size = new System.Drawing.Size(250, 180);
-            this.btnPayMomo.TabIndex = 1;
-            this.btnPayMomo.Text = "💰\n\nMomo\n\nQR Code Payment";
-            this.btnPayMomo.UseVisualStyleBackColor = false;
-            this.btnPayMomo.Click += new System.EventHandler(this.btnPayMomo_Click);
-            // 
-            // btnPayVNPay
-            // 
-            this.btnPayVNPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btnPayVNPay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPayVNPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPayVNPay.ForeColor = System.Drawing.Color.White;
-            this.btnPayVNPay.Location = new System.Drawing.Point(590, 50);
-            this.btnPayVNPay.Name = "btnPayVNPay";
-            this.btnPayVNPay.Size = new System.Drawing.Size(250, 180);
-            this.btnPayVNPay.TabIndex = 2;
-            this.btnPayVNPay.Text = "💵\n\nVNPay\n\nQR Code Payment";
-            this.btnPayVNPay.UseVisualStyleBackColor = false;
-            this.btnPayVNPay.Click += new System.EventHandler(this.btnPayVNPay_Click);
+            this.btnPayCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnPayCash.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPayCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPayCash.ForeColor = System.Drawing.Color.White;
+            this.btnPayCash.Location = new System.Drawing.Point(307, 50);
+            this.btnPayCash.Name = "btnPayCash";
+            this.btnPayCash.Size = new System.Drawing.Size(250, 180);
+            this.btnPayCash.TabIndex = 2;
+            this.btnPayCash.Text = "💵\n\nCash\n\nClick For Payment";
+            this.btnPayCash.UseVisualStyleBackColor = false;
+            this.btnPayCash.Click += new System.EventHandler(this.btnPayVNPay_Click);
             // 
             // btnPayZaloPay
             // 
@@ -280,6 +364,20 @@
             this.btnPayZaloPay.UseVisualStyleBackColor = false;
             this.btnPayZaloPay.Click += new System.EventHandler(this.btnPayZaloPay_Click);
             // 
+            // btnPayVNPay
+            // 
+            this.btnPayVNPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnPayVNPay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPayVNPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPayVNPay.ForeColor = System.Drawing.Color.White;
+            this.btnPayVNPay.Location = new System.Drawing.Point(590, 50);
+            this.btnPayVNPay.Name = "btnPayVNPay";
+            this.btnPayVNPay.Size = new System.Drawing.Size(250, 180);
+            this.btnPayVNPay.TabIndex = 1;
+            this.btnPayVNPay.Text = "💰\n\nVNPay\n\nQR Code Payment";
+            this.btnPayVNPay.UseVisualStyleBackColor = false;
+            this.btnPayVNPay.Click += new System.EventHandler(this.btnPayCash_Click);
+            // 
             // tabReports
             // 
             this.tabReports.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -289,7 +387,7 @@
             this.tabReports.Location = new System.Drawing.Point(4, 29);
             this.tabReports.Name = "tabReports";
             this.tabReports.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReports.Size = new System.Drawing.Size(1168, 587);
+            this.tabReports.Size = new System.Drawing.Size(1174, 587);
             this.tabReports.TabIndex = 1;
             this.tabReports.Text = "Reports & Analytics";
             // 
@@ -311,10 +409,11 @@
             // 
             // lblFromDateLabel
             // 
-            this.lblFromDateLabel.Location = new System.Drawing.Point(0, 0);
+            this.lblFromDateLabel.Location = new System.Drawing.Point(46, 32);
             this.lblFromDateLabel.Name = "lblFromDateLabel";
-            this.lblFromDateLabel.Size = new System.Drawing.Size(100, 23);
+            this.lblFromDateLabel.Size = new System.Drawing.Size(68, 23);
             this.lblFromDateLabel.TabIndex = 0;
+            this.lblFromDateLabel.Text = "From:";
             // 
             // dtpFromDate
             // 
@@ -326,10 +425,11 @@
             // 
             // lblToDateLabel
             // 
-            this.lblToDateLabel.Location = new System.Drawing.Point(0, 0);
+            this.lblToDateLabel.Location = new System.Drawing.Point(330, 32);
             this.lblToDateLabel.Name = "lblToDateLabel";
-            this.lblToDateLabel.Size = new System.Drawing.Size(100, 23);
+            this.lblToDateLabel.Size = new System.Drawing.Size(44, 23);
             this.lblToDateLabel.TabIndex = 2;
+            this.lblToDateLabel.Text = "To:";
             // 
             // dtpToDate
             // 
@@ -505,126 +605,34 @@
             // 
             this.lblMachineId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblMachineId.AutoSize = true;
-            this.lblMachineId.Location = new System.Drawing.Point(12, 645);
+            this.lblMachineId.Location = new System.Drawing.Point(21, 645);
             this.lblMachineId.Name = "lblMachineId";
-            this.lblMachineId.Size = new System.Drawing.Size(144, 20);
+            this.lblMachineId.Size = new System.Drawing.Size(202, 20);
             this.lblMachineId.TabIndex = 1;
-            this.lblMachineId.Text = "Machine: TVM001";
+            this.lblMachineId.Text = "Develop by: Akhom && Tan";
             // 
             // lblDateTime
             // 
             this.lblDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDateTime.AutoSize = true;
-            this.lblDateTime.Location = new System.Drawing.Point(950, 645);
+            this.lblDateTime.Location = new System.Drawing.Point(1182, 645);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(177, 20);
             this.lblDateTime.TabIndex = 2;
             this.lblDateTime.Text = "DD/MM/YYYY HH:MM";
             // 
-            // lblFareAmount
-            // 
-            this.lblFareAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
-            this.lblFareAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.lblFareAmount.Location = new System.Drawing.Point(20, 200);
-            this.lblFareAmount.Name = "lblFareAmount";
-            this.lblFareAmount.Size = new System.Drawing.Size(550, 47);
-            this.lblFareAmount.TabIndex = 11;
-            this.lblFareAmount.Text = "0 ₫";
-            // 
-            // lblFareLabel
-            // 
-            this.lblFareLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblFareLabel.Name = "lblFareLabel";
-            this.lblFareLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblFareLabel.TabIndex = 10;
-            // 
-            // lblZones
-            // 
-            this.lblZones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblZones.Location = new System.Drawing.Point(120, 140);
-            this.lblZones.Name = "lblZones";
-            this.lblZones.Size = new System.Drawing.Size(150, 20);
-            this.lblZones.TabIndex = 9;
-            // 
-            // lblZonesLabel
-            // 
-            this.lblZonesLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblZonesLabel.Name = "lblZonesLabel";
-            this.lblZonesLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblZonesLabel.TabIndex = 8;
-            // 
-            // lblJourneyTime
-            // 
-            this.lblJourneyTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblJourneyTime.Location = new System.Drawing.Point(390, 110);
-            this.lblJourneyTime.Name = "lblJourneyTime";
-            this.lblJourneyTime.Size = new System.Drawing.Size(150, 20);
-            this.lblJourneyTime.TabIndex = 7;
-            // 
-            // lblJourneyLabel
-            // 
-            this.lblJourneyLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblJourneyLabel.Name = "lblJourneyLabel";
-            this.lblJourneyLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblJourneyLabel.TabIndex = 6;
-            // 
-            // lblDistance
-            // 
-            this.lblDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDistance.Location = new System.Drawing.Point(120, 110);
-            this.lblDistance.Name = "lblDistance";
-            this.lblDistance.Size = new System.Drawing.Size(100, 20);
-            this.lblDistance.TabIndex = 5;
-            // 
-            // lblDistanceLabel
-            // 
-            this.lblDistanceLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblDistanceLabel.Name = "lblDistanceLabel";
-            this.lblDistanceLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblDistanceLabel.TabIndex = 4;
-            // 
-            // lblDestStation
-            // 
-            this.lblDestStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDestStation.Location = new System.Drawing.Point(150, 70);
-            this.lblDestStation.Name = "lblDestStation";
-            this.lblDestStation.Size = new System.Drawing.Size(420, 20);
-            this.lblDestStation.TabIndex = 3;
-            // 
-            // lblToLabel
-            // 
-            this.lblToLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblToLabel.Name = "lblToLabel";
-            this.lblToLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblToLabel.TabIndex = 2;
-            // 
-            // lblOriginStation
-            // 
-            this.lblOriginStation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lblOriginStation.Location = new System.Drawing.Point(150, 40);
-            this.lblOriginStation.Name = "lblOriginStation";
-            this.lblOriginStation.Size = new System.Drawing.Size(420, 20);
-            this.lblOriginStation.TabIndex = 1;
-            // 
-            // lblFromLabel
-            // 
-            this.lblFromLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblFromLabel.Name = "lblFromLabel";
-            this.lblFromLabel.Size = new System.Drawing.Size(100, 23);
-            this.lblFromLabel.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.ClientSize = new System.Drawing.Size(1432, 700);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblMachineId);
             this.Controls.Add(this.lblDateTime);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HCMC Metro - Ticket Vendor Machine";
+            this.Text = "HCMC Metro";
             this.tabControl1.ResumeLayout(false);
             this.tabPurchase.ResumeLayout(false);
             this.grpStationSelection.ResumeLayout(false);
@@ -655,8 +663,7 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.GroupBox grpPayment;
         private System.Windows.Forms.Button btnPayCreditCard;
-        private System.Windows.Forms.Button btnPayMomo;
-        private System.Windows.Forms.Button btnPayVNPay;
+        private System.Windows.Forms.Button btnPayCash;
         private System.Windows.Forms.Button btnPayZaloPay;
         private System.Windows.Forms.GroupBox grpReportFilters;
         private System.Windows.Forms.DateTimePicker dtpFromDate;
@@ -673,7 +680,6 @@
         private System.Windows.Forms.Label lblSuccessRate;
         private System.Windows.Forms.Label lblMachineId;
         private System.Windows.Forms.Label lblDateTime;
-        private System.Windows.Forms.Label lblFromDateLabel;
         private System.Windows.Forms.Label lblToDateLabel;
         private System.Windows.Forms.Label lblTotalTransLabel;
         private System.Windows.Forms.Label lblSuccessLabel;
@@ -694,5 +700,7 @@
         private System.Windows.Forms.Label lblZones;
         private System.Windows.Forms.Label lblFareLabel;
         private System.Windows.Forms.Label lblFareAmount;
+        private System.Windows.Forms.Button btnPayVNPay;
+        private System.Windows.Forms.Label lblFromDateLabel;
     }
 }

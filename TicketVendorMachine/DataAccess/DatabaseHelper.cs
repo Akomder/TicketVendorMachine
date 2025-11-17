@@ -8,7 +8,7 @@ namespace TicketVendorMachine.DataAccess
 {
     public class DatabaseHelper
     {
-        private readonly string _connectionString = "Server=localhost;Database=TicketVendorMachineDB;Integrated Security=true;";
+        private readonly string _connectionString = "Server=SOUKAKHOM\\MSSQLSERVER01;Database=TicketVendorMachineDB;Integrated Security=true;";
 
         /// <summary>
         /// Test the database connection
@@ -82,18 +82,44 @@ namespace TicketVendorMachine.DataAccess
                 using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
                     conn.Open();
-                    string query = @"
-                        SELECT TOP 1 Fare 
-                        FROM FareRules 
-                        WHERE (OriginStationId = @OriginId AND DestinationStationId = @DestId)
-                           OR (OriginStationId = @DestId AND DestinationStationId = @OriginId)
-                        ORDER BY Fare";
-                    
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    // Step 1: Get Zone numbers for both stations
+                    int zoneFrom = 0;
+                    int zoneTo = 0;
+                    string zoneQuery = "SELECT ZoneNumber FROM Stations WHERE StationId = @StationId";
+
+                    using (SqlCommand cmd = new SqlCommand(zoneQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@OriginId", originStationId);
-                        cmd.Parameters.AddWithValue("@DestId", destinationStationId);
-                        
+                        cmd.Parameters.AddWithValue("@StationId", originStationId);
+                        zoneFrom = (int)cmd.ExecuteScalar();
+
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@StationId", destinationStationId);
+                        zoneTo = (int)cmd.ExecuteScalar();
+                    }
+
+                    // Ensure ZoneFrom is always the smaller or equal number, as per the database constraint
+                    if (zoneFrom > zoneTo)
+                    {
+                        int temp = zoneFrom;
+                        zoneFrom = zoneTo;
+                        zoneTo = temp;
+                    }
+
+                    // Step 2: Get the fare based on the zones
+                    string fareQuery = @"
+                        SELECT TOP 1 BaseFare 
+                        FROM FareRules 
+                        WHERE ZoneFrom = @ZoneFrom 
+                          AND ZoneTo = @ZoneTo 
+                          AND TicketType = 'Single'
+                          AND IsActive = 1
+                        ORDER BY BaseFare"; // Get the cheapest single ticket for this zone pair
+
+                    using (SqlCommand cmd = new SqlCommand(fareQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ZoneFrom", zoneFrom);
+                        cmd.Parameters.AddWithValue("@ZoneTo", zoneTo);
+
                         object result = cmd.ExecuteScalar();
                         if (result != null && result != DBNull.Value)
                         {
@@ -107,9 +133,8 @@ namespace TicketVendorMachine.DataAccess
                 System.Diagnostics.Debug.WriteLine($"Error calculating fare: {ex.Message}");
             }
 
-            return 0;
+            return 0; // Return 0 if no rule is found or an error occurs
         }
-
         /// <summary>
         /// Calculate route details (distance and journey time)
         /// </summary>
@@ -120,27 +145,30 @@ namespace TicketVendorMachine.DataAccess
                 using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
                     conn.Open();
-                    string query = @"
-                        SELECT TOP 1 Distance, JourneyTime 
-                        FROM FareRules 
-                        WHERE (OriginStationId = @OriginId AND DestinationStationId = @DestId)
-                           OR (OriginStationId = @DestId AND DestinationStationId = @OriginId)";
-                    
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    // Step 1: Get OrderIndex for both stations
+                    int orderFrom = 0;
+                    int orderTo = 0;
+                    string orderQuery = "SELECT OrderIndex FROM Stations WHERE StationId = @StationId";
+
+                    using (SqlCommand cmd = new SqlCommand(orderQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@OriginId", originStationId);
-                        cmd.Parameters.AddWithValue("@DestId", destinationStationId);
-                        
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                double distance = reader["Distance"] != DBNull.Value ? Convert.ToDouble(reader["Distance"]) : 0;
-                                int journeyTime = reader["JourneyTime"] != DBNull.Value ? Convert.ToInt32(reader["JourneyTime"]) : 0;
-                                return (distance, journeyTime);
-                            }
-                        }
+                        cmd.Parameters.AddWithValue("@StationId", originStationId);
+                        orderFrom = (int)cmd.ExecuteScalar();
+
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@StationId", destinationStationId);
+                        orderTo = (int)cmd.ExecuteScalar();
                     }
+
+                    // Step 2: Calculate stops, distance, and time
+                    int stops = Math.Abs(orderTo - orderFrom);
+
+                    // Estimating 2.1km per stop and 3 minutes per stop (incl. wait)
+                    // This is an estimation to make the feature work.
+                    double distance = stops * 2.1;
+                    int journeyTime = stops * 3;
+
+                    return (distance, journeyTime);
                 }
             }
             catch (Exception ex)
@@ -148,9 +176,8 @@ namespace TicketVendorMachine.DataAccess
                 System.Diagnostics.Debug.WriteLine($"Error calculating route details: {ex.Message}");
             }
 
-            return (0, 0);
+            return (0, 0); // Return 0 if an error occurs
         }
-
         /// <summary>
         /// Save transaction to the database
         /// </summary>
