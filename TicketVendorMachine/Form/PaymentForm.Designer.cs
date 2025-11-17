@@ -1,5 +1,4 @@
-﻿// In file: TicketVendorMachine/Form/PaymentForm.Designer.cs
-
+﻿
 namespace TicketVendorMachine
 {
     // --- FIX APPLIED HERE ---

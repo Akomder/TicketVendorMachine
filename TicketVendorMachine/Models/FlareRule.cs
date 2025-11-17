@@ -1,7 +1,4 @@
-﻿// ============================================
-// File: Models/FareRule.cs
-// ============================================
-using System;
+﻿using System;
 
 namespace TicketVendorMachine.Models
 {

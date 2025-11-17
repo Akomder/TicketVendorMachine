@@ -1,5 +1,4 @@
-﻿// In file: TicketVendorMachine/Helpers/TicketHelper.cs
-
+﻿
 using System;
 
 namespace TicketVendorMachine.Helpers

@@ -1,7 +1,7 @@
-﻿// In file: TicketVendorMachine/Helpers/QRCodeHelper.cs
-
-using QRCoder;
+﻿
 using System.Drawing;
+using System.Drawing.Imaging;
+using QRCoder;
 
 namespace TicketVendorMachine.Helpers
 {
@@ -22,6 +22,10 @@ namespace TicketVendorMachine.Helpers
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
 
             return qrCodeImage;
+        }
+        public static void SaveAsPng(Bitmap qrCodeImage, string filePath)
+        {
+            qrCodeImage.Save(filePath, ImageFormat.Png);
         }
     }
 }

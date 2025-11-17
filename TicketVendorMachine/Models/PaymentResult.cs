@@ -1,7 +1,4 @@
-﻿// ============================================
-// File: Models/PaymentResult.cs
-// ============================================
-using System;
+﻿using System;
 
 namespace TicketVendorMachine.Models
 {

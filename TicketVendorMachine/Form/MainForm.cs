@@ -1,5 +1,4 @@
-﻿// In file: TicketVendorMachine/Form/MainForm.cs
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;

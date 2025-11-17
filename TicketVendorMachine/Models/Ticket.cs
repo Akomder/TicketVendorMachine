@@ -1,7 +1,4 @@
-﻿// ============================================
-// File: Models/Ticket.cs
-// ============================================
-using System;
+﻿using System;
 
 namespace TicketVendorMachine.Models
 {
