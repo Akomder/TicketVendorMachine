@@ -183,7 +183,7 @@ namespace TicketVendorMachine
                 if (paymentMethod == "Cash")
                 {
                     string cashMessage = $"Please insert {calculatedFare:N0} ₫\n\n" +
-                                         "(This is a simulation. In a real machine, you would insert banknotes.)\n\n" +
+                                         "(Please insert banknotes.)\n\n" +
                                          "Click OK to confirm payment, or Cancel to abort.";
 
                     DialogResult result = MessageBox.Show(cashMessage, "Cash Payment",

@@ -348,7 +348,7 @@
             this.btnPayCash.TabIndex = 2;
             this.btnPayCash.Text = "💵\n\nCash\n\nClick For Payment";
             this.btnPayCash.UseVisualStyleBackColor = false;
-            this.btnPayCash.Click += new System.EventHandler(this.btnPayVNPay_Click);
+            this.btnPayCash.Click += new System.EventHandler(this.btnPayCash_Click);
             // 
             // btnPayZaloPay
             // 
@@ -376,7 +376,7 @@
             this.btnPayVNPay.TabIndex = 1;
             this.btnPayVNPay.Text = "💰\n\nVNPay\n\nQR Code Payment";
             this.btnPayVNPay.UseVisualStyleBackColor = false;
-            this.btnPayVNPay.Click += new System.EventHandler(this.btnPayCash_Click);
+            this.btnPayVNPay.Click += new System.EventHandler(this.btnPayVNPay_Click);
             // 
             // tabReports
             // 
